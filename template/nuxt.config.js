@@ -26,6 +26,9 @@ module.exports = {
   plugins: [{
     src: '~plugins/iview',
     ssr: true
+  }, {
+    src: '~/plugins/bl-components',
+    ssr: true
   }],
   /*
    ** Customize the progress bar color

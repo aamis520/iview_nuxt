@@ -34,25 +34,66 @@
       <tree-select v-model="treeSelected"
         style="width: 300px;"
         check-strictly
-        :expand-all="true"
-        :loadData="loadData"
+        :expand-all="false"
         @on-change="handleTreeSelectChange"
         @on-toggle-expand="handleTreeSelectExpand"
         @on-check-change="handleTreeSelectCheckChange"
         @on-select-change="handleTreeSelectClick"
         :data="treeData"></tree-select>
+      <span class="ml20">树选择组件</span>
     </div>
+    <h2>1.8.ComboGrid</h2>
+    <div class="m20">
+      <Row>
+        <Col span="12">col-12</Col>
+        <Col span="12">col-12</Col>
+      </Row>
+      <br>
+      <Row>
+        <Col span="8">col-8</Col>
+        <Col span="8">col-8</Col>
+        <Col span="8">col-8</Col>
+      </Row>
+      <br>
+      <Row>
+        <Col span="6">col-6</Col>
+        <Col span="6">col-6</Col>
+        <Col span="6">col-6</Col>
+        <Col span="6">col-6</Col>
+      </Row>
+    </div>
+    <h2>Form</h2>
+    <div class="m20">
+      <formInput></formInput>
+    </div>
+    <h2>Transfer</h2>
+    <div class="m20">
+      <tranferBox></tranferBox>
+    </div>
+    <h2>Tree</h2>
+    <div class="m20">
+      <!-- <treeIos></treeIos> -->
+      <component :is="myComponent"></component>
+    </div>
+    <!-- 给人员选择角色  选择部门 -->
   </div>
 </template>
 <script>
 import treeSelect from '../components/select/treeSelect.vue'
+import formInput from '../components/form'
+import tranferBox from '../components/transfer'
+import treeIos from '../components/tree'
 export default {
   components: {
-    treeSelect
+    treeSelect,
+    formInput,
+    tranferBox,
+    treeIos
   },
   data() {
     return {
       select1: '',
+      myComponent: 'zxc',
       options1: [
         {
           value: 'New York',

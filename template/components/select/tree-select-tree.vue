@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import Emitter from 'iview/src/mixins/emitter.js'
+import Emitter from './emitter.js'
 
 const arrayEqual = (arr1, arr2) => {
   // 判断数组的长度

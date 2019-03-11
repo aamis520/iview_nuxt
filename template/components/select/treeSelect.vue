@@ -13,11 +13,11 @@
 </template>
 
 <script>
-// import Emitter from 'iview/src/mixins/emitter'
+import Emitter from './emitter'
 import TreeSelectTreeItem from './tree-select-tree.vue'
 export default {
   name: 'TreeSelect',
-  // mixins: [Emitter],
+  mixins: [Emitter],
   components: {
     TreeSelectTreeItem
   },
