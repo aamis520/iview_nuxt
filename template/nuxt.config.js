@@ -30,6 +30,15 @@ module.exports = {
     src: '~/plugins/bl-components',
     ssr: true
   }],
+  modules: [
+    '@nuxtjs/axios',
+    '@nuxtjs/proxy'
+  ],
+  // proxy: [
+  //   ['/json.html', {
+  //     target: 'http://www.xxxx.com'
+  //   }] //注意这也是一个数组
+  // ],
   /*
    ** Customize the progress bar color
    */

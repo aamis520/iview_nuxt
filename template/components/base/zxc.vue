@@ -77,18 +77,14 @@
 export default {
   name: 'zxc',
   props: {
-    baseData: {},
+    baseData: Object,
     changeData: {
       type: Boolean,
       default: false
-    }
-  },
-  watch: {
-    changeData(val) {
-      // console.log(val)
-      // console.log(this.baseData)
-      Object.assign(this.formValidate, this.baseData)
-    }
+    },
+    dataUrl: '',
+    dataIsFromUrl: false,
+    dataReqParams: {}
   },
   data() {
     return {
@@ -177,7 +173,11 @@ export default {
   },
   methods: {
     handleSubmit(name) {
-      this.$emit('commit', this.formValidate)
+      let data = {
+        type: 'form',
+        data: this.formValidate
+      }
+      this.$emit('commit', data)
       this.$refs[name].resetFields()
       this.$refs[name].validate(valid => {
         if (valid) {
@@ -193,7 +193,21 @@ export default {
     }
   },
   created() {
-    console.log(this.changeData)
+    if (this.dataIsFromUrl) {
+      this.$axios['$' + this.dataReqParams.type](
+        this.dataUrl,
+        this.dataReqParams.params
+      )
+        .then(res => {
+          console.log(res)
+          this.formValidate = res.data.data
+        })
+        .catch(err => {})
+    } else {
+      if (this.baseData) {
+        this.formValidate = this.baseData.obj
+      }
+    }
   }
 }
 </script>
